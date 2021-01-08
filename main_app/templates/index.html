@@ -13,19 +13,19 @@
     {% if widgets|length == 0 %}
         <h3>No Widgets Exist</h3>
     {% else %}
-        <table>
-            <tr>
-                <th> Description </th>
-                <th> Quantity </th>
-                <th> Delete </th>
-            </tr>
+        <table style="margin: 2rem auto;">
+            <thead >
+                <tr>
+                    <th style="padding: 5px"> Description </th>
+                    <th style="padding: 5px"> Quantity </th>
+                    <th style="padding: 5px"> Delete </th>
+                </tr>
+            </thead>
             {% for widget in widgets %}
             <tr>
-                <td>{{ widget.description }}</td>
-                <td>{{ widget.quantity }}</td>
-                <td>Delete(TBC)</td>
-                <!-- to create "delete_widget" -->
-                <!-- <td><a style="color: red; text-decoration: none;" href="{% url 'delete_widget' widget.id %}"> X </a></td> -->
+                <td style="padding: 5px">{{ widget.description }}</td>
+                <td style="padding: 5px">{{ widget.quantity }}</td>
+                <td style="padding: 5px"><a style="color: red; text-decoration: none;" href="{% url 'delete_widget' widget.id %}"> X </a></td>
             </tr>
             {% endfor %}
         </table>
@@ -33,10 +33,10 @@
     <hr>
     <!-- add a form for adding new widgets... -->
     <h4>Add Widget</h4>
-    <form class="pure-form" action="" method="post" style="display: inline-block; width: 300px; text-align: right;">
+    <form class="pure-form" action="{% url 'add_widget' %}" method="post" style="display: inline-block; width: 300px; text-align: right;">
         {% csrf_token %}
         {{ add_widget_form.as_p }}
-        <input type="submit" class="pure-button" value="ADD WIDGET" style="align-self: center;">
+        <input type="submit" class="pure-button" value="ADD WIDGET" >
     </form>
 
 </body>
