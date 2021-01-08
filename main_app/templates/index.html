@@ -28,6 +28,10 @@
                 <td style="padding: 5px"><a style="color: red; text-decoration: none;" href="{% url 'delete_widget' widget.id %}"> X </a></td>
             </tr>
             {% endfor %}
+            <!-- <tr>
+                <td><strong>Total Quantity</strong></td>
+                <td><strong> {{ quantity_total }} // {{ quantity_avg }} // {{ quantity_count }}</strong></td>
+            </tr> -->
         </table>
     {% endif %}
     <hr>
