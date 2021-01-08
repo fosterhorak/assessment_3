@@ -32,7 +32,12 @@
     {% endif %}
     <hr>
     <!-- add a form for adding new widgets... -->
-
+    <h4>Add Widget</h4>
+    <form class="pure-form" action="" method="post" style="display: inline-block; width: 300px; text-align: right;">
+        {% csrf_token %}
+        {{ add_widget_form.as_p }}
+        <input type="submit" class="pure-button" value="ADD WIDGET" style="align-self: center;">
+    </form>
 
 </body>
 </html>
